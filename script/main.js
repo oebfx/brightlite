@@ -1,10 +1,14 @@
 //меню  
-// const trigger = document.querySelector('.trigger');
-// const nav = document.querySelector('.full-screen-nav');
-// const backdrop = document.querySelector('.backdrop');
+// тут мы вешаем на кнопку МЕНЮ событие которое при клике на кнопку
+// добавляет menu_mobile некий класс, в данном случае это active
 
-// trigger.addEventListener('click', () => nav.classList.add('open-nav'));
-// backdrop.addEventListener('click', () => nav.classList.remove('open-nav'));
+document.querySelector('.mobile-menu').addEventListener('click', () => {
+
+    document.querySelector('.nav-items').classList.toggle('active');
+
+})
+
+
 
 
 //слайдер
