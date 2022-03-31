@@ -1,12 +1,17 @@
 //меню  
-// тут мы вешаем на кнопку МЕНЮ событие которое при клике на кнопку
-// добавляет menu_mobile некий класс, в данном случае это active
+
 
 document.querySelector('.mobile-menu').addEventListener('click', () => {
 
     document.querySelector('.nav-items').classList.toggle('active');
 
-});
+})
+//соцсети
+document.querySelector('.footer-social-mobile').addEventListener('click', () => {
+
+    document.querySelector('.footer-social__items').classList.toggle('active');
+
+})
 
 
 
