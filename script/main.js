@@ -10,6 +10,7 @@ document.querySelector('.mobile-menu').addEventListener('click', () => {
 document.querySelector('.footer-social-mobile').addEventListener('click', () => {
 
     document.querySelector('.footer-social__items').classList.toggle('active');
+    document.querySelector('.footer-social-mobile').classList.toggle('active');
 
 })
 

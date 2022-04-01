@@ -10,7 +10,19 @@
     .track {
         justify-content: center;
     }
-
+    .main_slider_wrap{
+        position: relative;
+    }
+    .main_slider_wrap:before {
+        content:"← SWIPE →";
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 10px;
+        position: absolute;
+        top: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
     .main_slider_arrow-prev,
     .main_slider_arrow-next {
         display: none;
@@ -75,7 +87,7 @@
     .mobile-menu span {
         display: block;
         background: black;
-        ;
+        
     }
 
     .nav-items {
@@ -93,7 +105,7 @@
         opacity: 0;
         visibility: hidden;
         transition: all 0.5s ease;
-
+        box-shadow:0 1px 10px 2px white;
         overflow: hidden;
 
     }
@@ -130,7 +142,6 @@
             "B C"
             "A D"
             "A D"
-
             "E E";
         grid-template-rows: repeat(255px);
         grid-template-columns: repeat(235px);
@@ -226,7 +237,13 @@ grid-template-rows: repeat(2, 235px); */
         justify-content: space-evenly;
     }
 
+    .main_slider_wrap:before {
+        content:"← SWIPE →";
+        font-size: 20px;
 
+        letter-spacing: 5px;
+
+    }
 }
 
 @media (max-width: 475px) {
@@ -237,20 +254,7 @@ grid-template-rows: repeat(2, 235px); */
 }
 
 @media (max-width: 450px) {
-    /* .present {
-    padding-top: 300px;
-}
 
-.present__text-1 {
-    font-size: 32px;
-
-}
-
-.present__text-2 {
-    font-size: 60px;
-    line-height: 80px;
-
-} */
 
 
 
@@ -357,14 +361,17 @@ grid-template-rows: repeat(2, 235px); */
 
     .footer-social {
         position: relative;
-        transition: all 0.5s ease;
+        
     }
 
     .footer-social-mobile {
         display: flex;
-
+        transition: all 0.5s ease;
     }
-
+    .footer-social-mobile.active {
+        transition: all 0.5s ease;
+        border-radius:0px 0px 30px 30px;
+    }
     .footer-social__items {
         position: absolute;
         bottom: 35px;
@@ -374,7 +381,7 @@ grid-template-rows: repeat(2, 235px); */
         gap: 30px;
         grid-template-columns: repeat(2, 60px);
         justify-content: center;
-        max-width: 70%;
+        min-width: 60%;
         height: 300px;
         margin: 0 auto;
         justify-items: center;
@@ -383,7 +390,7 @@ grid-template-rows: repeat(2, 235px); */
         background: linear-gradient(0deg, rgba(122, 102, 204, 1) 0%, rgba(152, 136, 217, 1) 17%, rgba(177, 168, 215, 1) 100%);
         opacity: 0;
         visibility: hidden;
-        transition: all 0.5s ease;
+        transition: all 0.7s ease;
         border-radius: 10px;
     }
 
