@@ -97,7 +97,7 @@ transform: translateY(-3px) scale(1.1);
 
 }
 .nav__item:active {
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
     transform: translateY(-3px) ;
   
 }
@@ -532,16 +532,17 @@ color:#7A7A7A;
     font-weight: 700;
     font-size: 18px;
     line-height: 27px;
-    transition: all 0.3s ease;
+   
     color: #7A66CC;
 }
+.speech__site {
+max-width: max-content;
+transition: all 0.5s ease;
+}
 .speech__site:hover {
-    transition: all 0.3s ease;
-    width: max-content;
+  
+    
     transform: scale(1.1);
-    
-    
-    
 
 }
 .speech__site:active {
@@ -712,16 +713,22 @@ ol li.track__list-item:before {
     display: flex;
     align-items: center;
     color: #FFFFFF;
-    transition: all 0.7s ease;
+
 
 }
 
+.track__follow-social  {
 
+    transition: all 0.5s ease;
 
-.track__follow-social a:hover {
+}
+
+.track__follow-social:hover {
     transform: scale(1.2);
 }
-
+.track__follow-social:active {
+    transform: scale(1);
+}
 .track__follow-social span {
     margin-left: 10px;
 }

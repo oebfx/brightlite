@@ -429,10 +429,10 @@ grid-template-rows: repeat(2, 235px); */
     
     
     
-    .track__follow-social a:hover {
+    .track__follow-social:hover {
         transform: none;
     }
-    .track__follow-social a:active {
+    .track__follow-social:active {
         transform: translateY(3px);
     }
 
