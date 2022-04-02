@@ -43,7 +43,7 @@ body {
 
 }
 
-.navigation {}
+
 
 .logo {
 
@@ -103,7 +103,6 @@ transform: translateY(-3px) scale(1.1);
 }
 .nav__item a:active {
 color:#7A7A7A;
-
 
 }
 
