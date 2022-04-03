@@ -225,8 +225,10 @@ function switchTreck(numTreck) {
 }
 
 
+
+
 audio0.onclick = function () {
-    // Проверяем что переменная treck больше трёх
+    // Проверяем что переменная treck не равна нулю
     if (treck != 0) { // Если да, то
         treck = 0; // Увеличиваем её на один
         switchTreck(treck); // Меняем песню 
