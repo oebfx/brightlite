@@ -100,11 +100,7 @@
   
     }
       
-    .nav__item:active {
-        transform: translateY(3px);
-        
-    
-    }
+
 
 
     .nav-items {
@@ -447,10 +443,10 @@
         
     
     }
-    .main_slider_slide-tickets a:hover{
+    .main_slider_slide-tickets:hover{
         transform:none;
     }
-    .main_slider_slide-tickets a:active{
+    .main_slider_slide-tickets:active{
         transform: translateY(5px);
     }
     .footer-social__item:hover {
@@ -562,5 +558,11 @@
     .about-us {
         padding-top: 240%;
     }
+    .main_slider_wrap:before {
+        content:"← SWIPE →";
+        font-size: 18px;
 
+        letter-spacing: 5px;
+
+    }
 }
