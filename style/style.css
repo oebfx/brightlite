@@ -878,11 +878,11 @@ ol li.track__list-item:before {
 
 
 
-.main_slider_slide-tickets{
+.main_slider_slide-tickets a{
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+   
     width: 180px;
     height: 60px;
     background: #7A66CC;
@@ -895,16 +895,14 @@ ol li.track__list-item:before {
     font-size: 16px;
     line-height: 24px;
     text-transform: uppercase;
-
-
-}
-.main_slider_slide-tickets a {
     color: #FFFFFF;
+
 }
-.main_slider_slide-tickets:hover{
+
+.main_slider_slide-tickets a:hover{
     transform: scale(1.1);
 }
-.main_slider_slide-tickets:active{
+.main_slider_slide-tickets a:active{
     transform: scale(1);
     background: #3C2A89;
 }

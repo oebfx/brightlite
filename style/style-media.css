@@ -439,14 +439,13 @@
     .speech__site:active {
 
         transform: translateY(5px);
- 
-        
+
     
     }
-    .main_slider_slide-tickets:hover{
+    .main_slider_slide-tickets a:hover{
         transform:none;
     }
-    .main_slider_slide-tickets:active{
+    .main_slider_slide-tickets a:active{
         transform: translateY(5px);
     }
     .footer-social__item:hover {
