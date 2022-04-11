@@ -1,5 +1,5 @@
 /**
- * Swiper 8.0.7
+ * Swiper 8.0.5
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: March 4, 2022
+ * Released on: February 10, 2022
  */
 
 (function (global, factory) {
@@ -4981,8 +4981,7 @@
       let {
         swiper,
         extendParams,
-        on,
-        emit
+        on
       } = _ref;
       extendParams({
         virtual: {
@@ -5073,8 +5072,6 @@
           if (swiper.lazy && swiper.params.lazy.enabled) {
             swiper.lazy.load();
           }
-
-          emit('virtualUpdate');
         }
 
         if (previousFrom === from && previousTo === to && !force) {
@@ -5083,7 +5080,6 @@
           }
 
           swiper.updateProgress();
-          emit('virtualUpdate');
           return;
         }
 
@@ -5105,8 +5101,6 @@
 
           if (swiper.params.virtual.renderExternalUpdate) {
             onRendered();
-          } else {
-            emit('virtualUpdate');
           }
 
           return;
@@ -6333,7 +6327,7 @@
         }
 
         $el.addClass(params.modifierClass + params.type);
-        $el.addClass(swiper.isHorizontal() ? params.horizontalClass : params.verticalClass);
+        $el.addClass(params.modifierClass + swiper.params.direction);
 
         if (params.type === 'bullets' && params.dynamicBullets) {
           $el.addClass(`${params.modifierClass}${params.type}-dynamic`);
@@ -6373,7 +6367,7 @@
         const $el = swiper.pagination.$el;
         $el.removeClass(params.hiddenClass);
         $el.removeClass(params.modifierClass + params.type);
-        $el.removeClass(swiper.isHorizontal() ? params.horizontalClass : params.verticalClass);
+        $el.removeClass(params.modifierClass + swiper.params.direction);
         if (swiper.pagination.bullets && swiper.pagination.bullets.removeClass) swiper.pagination.bullets.removeClass(params.bulletActiveClass);
 
         if (params.clickable) {
@@ -9606,19 +9600,6 @@
         if (swiper.params.effect !== effect) return;
         setTransition(duration);
       });
-      let requireUpdateOnVirtual;
-      on('virtualUpdate', () => {
-        if (!swiper.slides.length) {
-          requireUpdateOnVirtual = true;
-        }
-
-        requestAnimationFrame(() => {
-          if (requireUpdateOnVirtual && swiper.slides.length) {
-            setTranslate();
-            requireUpdateOnVirtual = false;
-          }
-        });
-      });
     }
 
     function effectTarget(effectParams, $slideEl) {
@@ -10067,8 +10048,7 @@
           const $slideEl = slides.eq(i);
           const slideSize = slidesSizesGrid[i];
           const slideOffset = $slideEl[0].swiperSlideOffset;
-          const centerOffset = (center - slideOffset - slideSize / 2) / slideSize;
-          const offsetMultiplier = typeof params.modifier === 'function' ? params.modifier(centerOffset) : centerOffset * params.modifier;
+          const offsetMultiplier = (center - slideOffset - slideSize / 2) / slideSize * params.modifier;
           let rotateY = isHorizontal ? rotate * offsetMultiplier : 0;
           let rotateX = isHorizontal ? 0 : rotate * offsetMultiplier; // var rotateZ = 0
 
@@ -10331,9 +10311,8 @@
           let scale = 1;
           let rotate = -2 * progress;
           let tXAdd = 8 - Math.abs(progress) * 0.75;
-          const slideIndex = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.from + i : i;
-          const isSwipeToNext = (slideIndex === activeIndex || slideIndex === activeIndex - 1) && progress > 0 && progress < 1 && (isTouched || swiper.params.cssMode) && currentTranslate < startTranslate;
-          const isSwipeToPrev = (slideIndex === activeIndex || slideIndex === activeIndex + 1) && progress < 0 && progress > -1 && (isTouched || swiper.params.cssMode) && currentTranslate > startTranslate;
+          const isSwipeToNext = (i === activeIndex || i === activeIndex - 1) && progress > 0 && progress < 1 && (isTouched || swiper.params.cssMode) && currentTranslate < startTranslate;
+          const isSwipeToPrev = (i === activeIndex || i === activeIndex + 1) && progress < 0 && progress > -1 && (isTouched || swiper.params.cssMode) && currentTranslate > startTranslate;
 
           if (isSwipeToNext || isSwipeToPrev) {
             const subProgress = (1 - Math.abs((Math.abs(progress) - 0.5) / 0.5)) ** 0.5;
